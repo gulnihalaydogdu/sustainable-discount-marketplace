@@ -4,7 +4,7 @@ services:
     container_name: ctis256-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
+      MYSQL_DATABASE: sustainable_marketplace
       MYSQL_USER: std
       MYSQL_PASSWORD: std
     ports:
