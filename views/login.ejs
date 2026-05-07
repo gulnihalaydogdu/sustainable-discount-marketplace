@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In — Sustainable Marketplace</title>
+  <link rel="stylesheet" href="/css/auth.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="auth-page">
+
+
+    <aside class="brand-panel" style="position: relative;">
+      <div class="brand-logo">
+        <div class="logo-leaf">
+          <div class="logo-icon"><img src="/img/logo.png" alt="BGT Market Logo"
+              style="width: 55px; margin-bottom: 15px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));"></div>
+          <span class="logo-name">BGT Market</span>
+        </div>
+      </div>
+
+      <div class="brand-headline">
+        <h1>Discover products<br>near their<br><em>expiration date.</em></h1>
+        <p>
+          Buy near-expiry market products at discounted prices. Reduce waste and save money.
+        </p>
+
+        <div class="brand-stats">
+          <div class="stat-item">
+            <span class="stat-value">%40</span>
+            <span class="stat-label">Average Discount</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">500+</span>
+            <span class="stat-label">Active Markets</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">12K</span>
+            <span class="stat-label">Users</span>
+          </div>
+        </div>
+      </div>
+
+
+    </aside>
+
+
+    <main class="form-panel">
+      <div class="form-container">
+
+        <div class="form-header">
+          <h2>Welcome back</h2>
+          <p>Don't have an account? <a href="/register">Sign up for free →</a></p>
+        </div>
+
+        <div class="auth-card">
+
+
+          <% if (typeof error !=='undefined' && error) { %>
+            <div class="error-alert">
+              <span>⚠️</span>
+              <span>
+                <%= error %>
+              </span>
+            </div>
+            <% } %>
+
+              <% if (typeof success !=='undefined' && success) { %>
+                <div class="alert alert-success">
+                  <%= success %>
+                </div>
+                <% } %>
+                  <form action="/login" method="POST" novalidate>
+
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" placeholder="example@email.com"
+                        value="<%= typeof oldInput !== 'undefined' ? (oldInput.email || '') : '' %>" required
+                        autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" id="password" name="password" placeholder="••••••••" required
+                        autocomplete="current-password">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Log In</button>
+
+                  </form>
+        </div>
+
+      </div>
+      <div style="position: absolute; bottom: 7px; right: 7px;
+       color: rgba(0, 0, 0, 0.2); font-size: 0.85rem;
+        letter-spacing: 0.5px; pointer-events: none; font-style: italic; font-family: 'Montserrat', sans-serif;">
+        Gulnihal Aydogdu - Tunahan Akkus - Ozum Beril Kilic
+      </div>
+    </main>
+
+  </div>
+
+</body>
+
+</html>
