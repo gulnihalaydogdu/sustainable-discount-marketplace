@@ -58,7 +58,7 @@ router.post('/register', async (req, res) => {
 
 
         await transporter.sendMail({
-            from: '"BGT Market" <gulnihalaydogdu15@gmail.com>', // Buraya kendi gmail adresini yaz
+            from: '"BGT Market" <gulnihalaydogdu15@gmail.com>',
             to: email,
             subject: 'BGT Market — Verification Code',
             html: `
@@ -122,7 +122,7 @@ router.post('/verify', async (req, res) => {
         await db.query('DELETE FROM PendingVerifications WHERE email = ?', [email]);
 
 
-        // Başarı sayfasını göster (Kullanıcı burada mesajı görüp sonra yönlenecek)
+       
         res.render('verify-success');
 
     } catch (error) {
