@@ -1,3 +1,7 @@
+//Gulnihal Aydogdu - 22301734
+//Ozum Beril Kilic - 22302277
+//Tunahan Akkus - 22403722
+
 import express from 'express';
 import mysql from 'mysql2';
 import session from 'express-session';
