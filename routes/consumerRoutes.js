@@ -150,36 +150,6 @@ router.get('/cart', async (req, res) => {
     }
 });
 
-
-
-
-router.get('/cart', async (req, res) => {
-    if (!req.session.userId || req.session.userType !== 'consumer') {
-        return res.redirect('/login');
-    }
-
-    try {
-        
-        const [items] = await db.query(`
-            SELECT Cart.id as cart_id, Cart.quantity, Products.*
-            FROM Cart
-            JOIN Products ON Cart.product_id = Products.id
-            WHERE Cart.consumer_id = ?
-            ORDER BY Cart.added_at DESC
-        `, [req.session.userId]);
-
-        
-        const total = items.reduce((sum, item) => sum + (item.discounted_price * item.quantity), 0);
-
-        res.render('cart', { user: req.session, items, total });
-
-    } catch (error) {
-        console.error("Cart Error:", error);
-        res.send("An error occurred while loading the cart.");
-    }
-});
-
-
 router.get('/cart/remove/:cartId', async (req, res) => {
     if (!req.session.userId || req.session.userType !== 'consumer') {
         return res.redirect('/login');
